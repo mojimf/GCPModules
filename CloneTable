@@ -1,0 +1,3 @@
+CREATE [ OR REPLACE ] TABLE [ IF NOT EXISTS ]
+destination_table_name
+CLONE source_table_name [FOR SYSTEM_TIME AS OF time_expression]
