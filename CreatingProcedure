@@ -1,0 +1,14 @@
+CREATE OR REPLACE PROCEDURE `prj.stg_csv.loadxxxs`()
+
+begin
+ 
+delete from `prod_csv.xxx` where timestamp in (select timestamp from `stg_csv.stgxxxx`);
+ 
+insert into `prod_csv.xxx`
+select
+*
+from `stg_csv.stgxxx`;
+ 
+truncate table stg_csv.stg_xxxx;
+ 
+end
