@@ -1,14 +1,19 @@
-CREATE OR REPLACE PROCEDURE `prj.stg_csv.loadxxxs`()
+CREATE OR REPLACE PROCEDURE `prj-vo-ctonse-n-usmrept-usmrep.stg_csv.load_prod_call_into_care`()
 
 begin
  
-delete from `prod_csv.xxx` where timestamp in (select timestamp from `stg_csv.stgxxxx`);
+delete from `prj-vo-ctonse-n-usmrept-usmrep.prod_csv.prod_call_into_care` where week_start_date in (select cast(cast(parse_datetime('%d/%m/%Y',week_start_date) as string format 'YYYYMMDD') as int) from `prj-vo-ctonse-n-usmrept-usmrep.stg_csv.stg_call_into_care`);
  
-insert into `prod_csv.xxx`
+insert into `prj-vo-ctonse-n-usmrept-usmrep.prod_csv.prod_call_into_care`
+
 select
-*
-from `stg_csv.stgxxx`;
+
+cast(cast(parse_datetime('%d/%m/%Y',week_start_date) as string format 'YYYYMMDD') as int) as week_start_date,
+cast(week as string) as week,
+cast(call_into_care as int) as call_into_care
+
+from `prj-vo-ctonse-n-usmrept-usmrep.stg_csv.stg_call_into_care`;
  
-truncate table stg_csv.stg_xxxx;
+truncate table `prj-vo-ctonse-n-usmrept-usmrep.stg_csv.stg_call_into_care`;
  
 end
