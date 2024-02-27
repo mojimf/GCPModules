@@ -1,0 +1,9 @@
+
+CREATE OR REPLACE TABLE `prj-v8888ep.prod_csv.prod_call_into_care` AS
+SELECT
+cast(cast(parse_datetime('%d/%m/%Y',week_start_date) as string format 'YYYYMMDD') as int) as week_start_date,
+week as week,
+cast(call_into_care as int) as call_into_care
+
+FROM
+  `prj-888888usmrep.stg_csv.stg_call_into_care`;
