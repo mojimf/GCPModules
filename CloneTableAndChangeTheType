@@ -1,9 +1,19 @@
 
-CREATE OR REPLACE TABLE `prj-v8888ep.prod_csv.prod_call_into_care` AS
+CREATE OR REPLACE TABLE `prj88888888888p.prod_csv.prod_met_warning` AS
 SELECT
-cast(cast(parse_datetime('%d/%m/%Y',week_start_date) as string format 'YYYYMMDD') as int) as week_start_date,
-week as week,
-cast(call_into_care as int) as call_into_care
-
+warning_id as warning_id,
+cast(issued_date as timestamp) as issued_date,
+cast(valid_from_date as timestamp) as valid_from_date,
+cast(valid_to_date as timestamp) as valid_to_date,
+weather_type as weather_type,
+warning_likelihood as warning_likelihood,
+warning_level as warning_level,
+warning_headline as warning_headline,
+what_to_expect as what_to_expect,
+partial_postcode as partial_postcode,
+issued_date_float as issued_date_float,
+valid_from_date_float as valid_from_date_float,
+valid_to_date_float as valid_to_date_float,
+load_date as load_date,
 FROM
-  `prj-888888usmrep.stg_csv.stg_call_into_care`;
+  `prj-888888888888888.stg_csv.stg_met_warning`;
