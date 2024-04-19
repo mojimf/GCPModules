@@ -1,0 +1,19 @@
+
+CREATE OR REPLACE TABLE `prj-v8888ep.prod_csv.prod_met_warning` AS
+SELECT
+warning_id as warning_id,
+cast(parse_datetime('%d/%m/%Y %H:%M:%S',issued_date) as timestamp) as issued_date,
+cast(parse_datetime('%d/%m/%Y %H:%M:%S',valid_from_date) as timestamp) as valid_from_date,
+cast(parse_datetime('%d/%m/%Y %H:%M:%S',valid_to_date) as timestamp) as valid_to_date,
+weather_tyoe as weather_type,
+warning_likelihood as warning_likelihood,
+warning_level as warning_level,
+warning_headline as warning_headline,
+waht_to_expect as what_to_expect,
+partial_postcode as partial_postcode,
+cast(cast(parse_datetime('%d/%m/%Y',issued_date_float) as string format 'YYYYMMDD') as int) as issued_date_float,
+cast(cast(parse_datetime('%d/%m/%Y',valid_from_date_float) as string format 'YYYYMMDD') as int) as valid_from_date_float,
+cast(cast(parse_datetime('%d/%m/%Y',valid_to_date_float) as string format 'YYYYMMDD') as int) as valid_to_date_float,
+cast(cast(parse_datetime('%d/%m/%Y',load_date) as string format 'YYYYMMDD') as int) as load_date,
+FROM
+  `prj-888888usmrep.stg_csv.stg_met_warning`;
