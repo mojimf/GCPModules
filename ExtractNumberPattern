@@ -1,0 +1,6 @@
+SELECT 
+    XXXX,
+    REGEXP_EXTRACT(XXXX, r'(?i)dummy text as sample\s*:\s*(\d+)') AS culumn_name
+FROM `prj-vy-cyyyyy-n-yyyyy-usmrep.yyyyy.prod_yyyyy`
+WHERE 
+    REGEXP_CONTAINS(xxxx, r'(?i)dummy text as sample\s*:\s*\d')
