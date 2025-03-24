@@ -1,0 +1,15 @@
+SELECT
+xxx,
+FROM
+  `prj-vo-ctonsxxxx.prod_xxxxxx.prod_xxxxxxxxxdesk`
+WHERE
+  assigned_xxxxxx IN ("Txx")
+  AND assigned_Group NOT IN("5xxxx" )
+  AND Owner_Group NOT IN ("5Gxxxx" )
+  AND Status != 6
+  AND Suxter NOT IN ("xxxxn")
+  AND ProxName NOT IN ("2xxxx" )
+  AND Closure_xxxame NOT IN ("4G Ixxxxi")
+  AND Closurxxy_Tier3 NOT IN ("Ixxxx")
+  AND Proxxxxion_Tier_3 NOT IN ("xxx")
+  and Submit_date >= timestamp(DATE_ADD(current_date(), INTERVAL -90 DAY))
